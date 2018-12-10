@@ -13,6 +13,9 @@
 		CAB404F221B91F8800DB4C15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB404F121B91F8800DB4C15 /* Assets.xcassets */; };
 		CAB404F521B91F8800DB4C15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAB404F321B91F8800DB4C15 /* LaunchScreen.storyboard */; };
 		CAB404F821B91F8800DB4C15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB404F721B91F8800DB4C15 /* main.m */; };
+		CAB4050021BA08C200DB4C15 /* WTAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB404FF21BA08C200DB4C15 /* WTAuthorization.m */; };
+		CAB4050421BA8FA000DB4C15 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB4050321BA8FA000DB4C15 /* HealthKit.framework */; };
+		CAB4050621BA934D00DB4C15 /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB4050521BA934D00DB4C15 /* HomeKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,11 @@
 		CAB404F421B91F8800DB4C15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAB404F621B91F8800DB4C15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAB404F721B91F8800DB4C15 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CAB404FE21BA08C200DB4C15 /* WTAuthorization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTAuthorization.h; sourceTree = "<group>"; };
+		CAB404FF21BA08C200DB4C15 /* WTAuthorization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTAuthorization.m; sourceTree = "<group>"; };
+		CAB4050121BA89F000DB4C15 /* WTAuthorization.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WTAuthorization.entitlements; sourceTree = "<group>"; };
+		CAB4050321BA8FA000DB4C15 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		CAB4050521BA934D00DB4C15 /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAB4050621BA934D00DB4C15 /* HomeKit.framework in Frameworks */,
+				CAB4050421BA8FA000DB4C15 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +54,7 @@
 			children = (
 				CAB404E721B91F8700DB4C15 /* WTAuthorization */,
 				CAB404E621B91F8700DB4C15 /* Products */,
+				CAB4050221BA8FA000DB4C15 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,10 +69,13 @@
 		CAB404E721B91F8700DB4C15 /* WTAuthorization */ = {
 			isa = PBXGroup;
 			children = (
+				CAB4050121BA89F000DB4C15 /* WTAuthorization.entitlements */,
 				CAB404E821B91F8700DB4C15 /* AppDelegate.h */,
 				CAB404E921B91F8700DB4C15 /* AppDelegate.m */,
 				CAB404EB21B91F8700DB4C15 /* ViewController.h */,
 				CAB404EC21B91F8700DB4C15 /* ViewController.m */,
+				CAB404FE21BA08C200DB4C15 /* WTAuthorization.h */,
+				CAB404FF21BA08C200DB4C15 /* WTAuthorization.m */,
 				CAB404EE21B91F8700DB4C15 /* Main.storyboard */,
 				CAB404F121B91F8800DB4C15 /* Assets.xcassets */,
 				CAB404F321B91F8800DB4C15 /* LaunchScreen.storyboard */,
@@ -69,6 +83,15 @@
 				CAB404F721B91F8800DB4C15 /* main.m */,
 			);
 			path = WTAuthorization;
+			sourceTree = "<group>";
+		};
+		CAB4050221BA8FA000DB4C15 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CAB4050521BA934D00DB4C15 /* HomeKit.framework */,
+				CAB4050321BA8FA000DB4C15 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,6 +125,20 @@
 				TargetAttributes = {
 					CAB404E421B91F8700DB4C15 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+							com.apple.HomeKit = {
+								enabled = 1;
+							};
+							com.apple.NearFieldCommunicationTagReading = {
+								enabled = 1;
+							};
+							com.apple.Siri = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -141,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAB4050021BA08C200DB4C15 /* WTAuthorization.m in Sources */,
 				CAB404ED21B91F8700DB4C15 /* ViewController.m in Sources */,
 				CAB404F821B91F8800DB4C15 /* main.m in Sources */,
 				CAB404EA21B91F8700DB4C15 /* AppDelegate.m in Sources */,
@@ -285,8 +323,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7P64MZ97H2;
+				CODE_SIGN_ENTITLEMENTS = WTAuthorization/WTAuthorization.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WTAuthorization/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -294,6 +333,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Wynter.WTAuthorization;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -302,8 +342,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7P64MZ97H2;
+				CODE_SIGN_ENTITLEMENTS = WTAuthorization/WTAuthorization.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WTAuthorization/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -311,6 +352,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Wynter.WTAuthorization;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

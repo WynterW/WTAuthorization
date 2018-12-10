@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTAuthorization.h"
 
-@interface ViewController : UIViewController
-
+@interface ViewController : UITableViewController
 
 @end
 
+@interface PrivacyModel : NSObject
+
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, assign) WTPrivacyType privacyType;
+
+@end
